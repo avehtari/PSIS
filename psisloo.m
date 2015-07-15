@@ -1,19 +1,19 @@
-function [loo,loos,vgk] = vgisloo(log_lik,varargin)
-%VGISLOO Very good importance sampling leave-one-out log predictive densities
+function [loo,loos,pk] = psisloo(log_lik,varargin)
+%PSISLOO Pareto smoothed importance sampling leave-one-out log predictive densities
 %   
 %  Description
-%    [LOO,LOOS,KS] = VGISLOO(LOG_LIK) computes very good importance
+%    [LOO,LOOS,KS] = PSISLOO(LOG_LIK) computes Pareto smoothed importance
 %    sampling leave-one-out log predictive densities given posterior
 %    samples of the log likelihood terms p(y_i|\theta^s) in LOG_LIK.
 %    Returns a sum of the leave-one-out log predictive densities LOO,
 %    individual leave-one-out log predictive density terms LOOS and an
-%    estimate of the tail indeces KS. If tail index k>0.5, variance of
+%    estimate of Pareto tail indeces KS. If tail index k>0.5, variance of
 %    the raw estimate does not exist and if tail index k>1 the mean of the
-%    raw estimate does not exist and the smoothed VGIS estimate is
-%    likely to have large variation and some bias.
+%    raw estimate does not exist and the PSIS estimate is likely to
+%    have large variation and some bias.
 %
-%    [LOO,LOOS,KS] = VGISLOO(LOG_LIK,WCPP,WCUTOFF) passes optional
-%    arguments for very good importance sampling.
+%    [LOO,LOOS,KS] = PSISLOO(LOG_LIK,WCPP,WCUTOFF) passes optional
+%    arguments for Pareto smoothed importance sampling.
 %      WCPP    - percentage of samples used for GPD fit estimate
 %                (default = 20)
 %      WTRUNC  - parameter for truncating very large weights to N^WTRUNC,
@@ -24,7 +24,7 @@ function [loo,loos,vgk] = vgisloo(log_lik,varargin)
 %    implementation of leave-one-out cross-validation and WAIC for
 %    evaluating fitted Bayesian models
 %
-%    Aki Vehtari and Andrew Gelman (2015). Very good importance
+%    Aki Vehtari and Andrew Gelman (2015). Pareto smoothed importance
 %    sampling. arXiv preprint arXiv:1507.02646.
 %
 %  Copyright (c) 2015 Aki Vehtari
@@ -35,8 +35,8 @@ function [loo,loos,vgk] = vgisloo(log_lik,varargin)
 
 % log raw weights from log_lik
 lw=-log_lik;
-% compute VGIS smoothed log weights given raw log weights
-[vglw,vgk]=vgislw(lw,varargin{:});
+% compute Pareto smoothed log weights given raw log weights
+[lw,pk]=psislw(lw,varargin{:});
 % compute
-loos=sumlogs(log_lik+vglw);
+loos=sumlogs(log_lik+lw);
 loo=sum(loos);

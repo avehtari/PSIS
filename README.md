@@ -1,16 +1,16 @@
-## Very Good Importance Sampling (VGIS) and VGIS leave-one-out cross-validation for Matlab
+## Pareto smoothed importance sampling (PSIS) and PSIS leave-one-out cross-validation for Matlab
 
 
 ### Introduction
-These m-files implement Very Good Importance Sampling (VGIS) and
-VGIS leave-one-out cross-validation for Matlab
+These m-files implement Pareto smoothed importance sampling (PSIS) and
+PSIS leave-one-out cross-validation for Matlab
 
 
 ### Contents
-- 'vgislw.m'  - Very good importance sampling smoothing of the log importance weights
-   - Aki Vehtari and Andrew Gelman (2015). Very good importance
+- 'psislw.m'  - Pareto smoothed importance sampling smoothing of the log importance weights
+   - Aki Vehtari and Andrew Gelman (2015). Pareto smoothed importance
    sampling. [arXiv preprint arXiv:1507.02646](http://arxiv.org/abs/1507.02646)
-- 'vgisloo.m' - Very good importance sampling leave-one-out log predictive densities
+- 'psisloo.m' - Pareto smoothed importance sampling leave-one-out log predictive densities
    - Aki Vehtari, Andrew Gelman and Jonah Gabry (2015). Efficient
    implementation of leave-one-out cross-validation and WAIC for
    evaluating fitted Bayesian models.

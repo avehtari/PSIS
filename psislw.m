@@ -1,16 +1,16 @@
-function [lw,kss] = vgislw(lw,wcpp,wtrunc)
-%VGIS Very Good Importance Sampling
+function [lw,kss] = psislw(lw,wcpp,wtrunc)
+%PSIS PAreto smoothed importance sampling
 %   
 %  Description
-%    [LW,K] = VGISLW(LW,WCPP,WCUTOFF) returns log weights LW
-%    and tail indeces K, given log weights and optional arguments:
+%    [LW,K] = PSISLW(LW,WCPP,WCUTOFF) returns log weights LW
+%    and Pareto tail indeces K, given log weights and optional arguments:
 %      WCPP    - percentage of samples used for GPD fit estimate
 %                (default = 20)
 %      WTRUNC  - parameter for truncating very large weights to N^WTRUNC,
 %                with no truncation if 0 (default = 3/4)
 %    
 %  Reference:
-%    Aki Vehtari and Andrew Gelman (2015). Very good importance
+%    Aki Vehtari and Andrew Gelman (2015). Pareto smoothed importance
 %    sampling. arXiv preprint arXiv:1507.02646.
 %
 % Copyright (c) 2015 Aki Vehtari
@@ -19,7 +19,7 @@ function [lw,kss] = vgislw(lw,wcpp,wtrunc)
 % License (version 3 or later); please refer to the file
 % License.txt, included with the software, for details.
 if size(lw,1)<=1
-    error('vgislw: more than one log-weight needed');
+    error('psislw: more than one log-weight needed');
 end
 if nargin<2
     wcpp=20;
