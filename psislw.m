@@ -1,5 +1,5 @@
 function [lw,kss] = psislw(lw,wcpp,wtrunc)
-%PSIS PAreto smoothed importance sampling
+%PSIS Pareto smoothed importance sampling
 %   
 %  Description
 %    [LW,K] = PSISLW(LW,WCPP,WCUTOFF) returns log weights LW
@@ -13,7 +13,7 @@ function [lw,kss] = psislw(lw,wcpp,wtrunc)
 %    Aki Vehtari and Andrew Gelman (2015). Pareto smoothed importance
 %    sampling. arXiv preprint arXiv:1507.02646.
 %
-% Copyright (c) 2015 Aki Vehtari
+% Copyright (c) 2015 Aki Vehtari, Tuomas Sivula
 
 % This software is distributed under the GNU General Public
 % License (version 3 or later); please refer to the file
@@ -80,3 +80,24 @@ end
 %     warning('Following indeces have estimated tail index k>1');
 %     disp(ksi)
 % end
+end
+
+function x = gpinv(p,k,sigma)
+% Octave compatibility by Tuomas Sivula
+x = NaN(size(p));
+if sigma <= 0
+    return
+end
+ok = (p>0) & (p<1);
+if abs(k) < eps
+    x(ok) = -log1p(-p(ok));
+else
+    x(ok) = expm1(-k * log1p(-p(ok))) ./ k;
+end
+x = sigma*x;
+if ~all(ok)
+    x(p==0) = 0;
+    x(p==1 & k>=0) = Inf;
+    x(p==1 & k<0) = -sigma/k;
+end
+end
