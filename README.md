@@ -13,7 +13,7 @@ PSIS leave-one-out cross-validation for Matlab and Octave
 - 'psisloo.m' - Pareto smoothed importance sampling leave-one-out log predictive densities
    - Aki Vehtari, Andrew Gelman and Jonah Gabry (2015). Efficient
    implementation of leave-one-out cross-validation and WAIC for
-   evaluating fitted Bayesian models.
+   evaluating fitted Bayesian models. [arXiv preprint arXiv:1507.04544](http://arxiv.org/abs/1507.04544)
 - 'gpdfitnew.m' - Estimate the paramaters for the Generalized Pareto Distribution
    - Jin Zhang & Michael A. Stephens (2009) A New and Efficient
      Estimation Method for the Generalized Pareto Distribution,
