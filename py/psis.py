@@ -146,7 +146,7 @@ def psislw(lw, wcpp=20, wtrunc=3/4, overwrite_lw=False):
         x -= np.max(x)
         # divide log weights into body and right tail
         xcutoff = max(
-            np.percentile(x, 100 - wcpp, interpolation='midpoint'),
+            np.percentile(x, 100 - wcpp),
             cutoffmin
         )
         expxcutoff = np.exp(xcutoff)
