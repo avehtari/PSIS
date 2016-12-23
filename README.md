@@ -27,11 +27,11 @@ The corresponding R code can be found in [R package called
    - sumlogs - Sum of vector where numbers are represented by their logarithms
                  
 ### References
-- Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Pareto smoothed importance
-  sampling. [arXiv preprint arXiv:1507.02646](http://arxiv.org/abs/1507.02646)
-- Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Practical Bayesian model 
-  evaluation using leave-one-out cross-validation and WAIC. In Statistics and
-  Computing, doi:10.1007/s11222-016-9696-4. [arXiv preprint arXiv:1507.04544](http://arxiv.org/abs/1507.04544)
+- Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Practical
+  Bayesian model evaluation using leave-one-out cross-validation
+  and WAIC. Statistics and Computing, [doi:10.1007/s11222-016-9696-4](http://dx.doi.org/10.1007/s11222-016-9696-4). [arXiv preprint arXiv:1507.04544](http://arxiv.org/abs/1507.04544)
+- Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Pareto
+  smoothed importance sampling. [arXiv preprint arXiv:1507.02646](http://arxiv.org/abs/1507.02646)
 - Jin Zhang & Michael A. Stephens (2009) A New and Efficient
   Estimation Method for the Generalized Pareto Distribution,
   Technometrics, 51:3, 316-325, DOI: 10.1198/tech.2009.08017

@@ -20,12 +20,12 @@ function [loo,loos,pk] = psisloo(log_lik,varargin)
 %                with no truncation if 0 (default = 3/4)
 %
 %  References:
-%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2015). Efficient
-%    implementation of leave-one-out cross-validation and WAIC for
-%    evaluating fitted Bayesian models. arXiv preprint arXiv:1507.04544.
+%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Practical
+%    Bayesian model evaluation using leave-one-out cross-validation
+%    and WAIC. Statistics and Computing, doi:10.1007/s11222-016-9696-4.
 %
-%    Aki Vehtari and Andrew Gelman (2015). Pareto smoothed importance
-%    sampling. arXiv preprint arXiv:1507.02646.
+%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Pareto
+%    smoothed importance sampling. arXiv preprint arXiv:1507.02646v4.
 %
 %  Copyright (c) 2015 Aki Vehtari
 
