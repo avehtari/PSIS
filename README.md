@@ -7,8 +7,7 @@ PSIS leave-one-out cross-validation for Matlab/Octave and Python
 
 ### Corresponding R code
 
-The corresponding R code can be found in [R package called
-`loo'](https://github.com/stan-dev/loo) which is also available in CRAN.
+The corresponding R code can be found in the [`loo` R package](https://github.com/stan-dev/loo), which is also available from [CRAN](https://cran.r-project.org/package=loo).
 
 ### Contents
 
