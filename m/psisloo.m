@@ -7,25 +7,21 @@ function [loo,loos,pk] = psisloo(log_lik,varargin)
 %    samples of the log likelihood terms p(y_i|\theta^s) in LOG_LIK.
 %    Returns a sum of the leave-one-out log predictive densities LOO,
 %    individual leave-one-out log predictive density terms LOOS and an
-%    estimate of Pareto tail indeces KS. If tail index k>0.5, variance of
-%    the raw estimate does not exist and if tail index k>1 the mean of the
-%    raw estimate does not exist and the PSIS estimate is likely to
-%    have large variation and some bias.
+%    estimate of Pareto tail indeces KS. The estimates are unreliable if 
+%    tail index k>0.7 (see more in the references).
 %
-%    [LOO,LOOS,KS] = PSISLOO(LOG_LIK,WCPP,WCUTOFF) passes optional
+%    [LOO,LOOS,KS] = PSISLOO(LOG_LIK,Reff) passes optional
 %    arguments for Pareto smoothed importance sampling.
-%      WCPP    - percentage of samples used for GPD fit estimate
-%                (default = 20)
-%      WTRUNC  - parameter for truncating very large weights to N^WTRUNC,
-%                with no truncation if 0 (default = 3/4)
+%      Reff - relative MCMC efficiency N_eff/N
 %
-%  References:
-%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Practical
+%  References
+%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2017). Practical
 %    Bayesian model evaluation using leave-one-out cross-validation
-%    and WAIC. Statistics and Computing, doi:10.1007/s11222-016-9696-4.
+%    and WAIC. Statistics and Computing, 27(5):1413–1432. 
+%    doi:10.1007/s11222-016-9696-4. https://arxiv.org/abs/1507.04544
 %
-%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Pareto
-%    smoothed importance sampling. arXiv preprint arXiv:1507.02646v4.
+%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2017). Pareto
+%    smoothed importance sampling. https://arxiv.org/abs/arXiv:1507.02646v5
 %
 %  Copyright (c) 2015 Aki Vehtari
 

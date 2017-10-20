@@ -1,15 +1,17 @@
 %DEMO_STAN_ARSENIC
 %
 %  Description
-%    Demonstration of computing PSIS-LOO and k-fold-CV for Stan model using MatlabStan
+%    Demonstration of computing PSIS-LOO and k-fold-CV for Stan model
+%    using MatlabStan
 %
-%  References:
-%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Practical
+%  References
+%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2017). Practical
 %    Bayesian model evaluation using leave-one-out cross-validation
-%    and WAIC. Statistics and Computing, doi:10.1007/s11222-016-9696-4.
+%    and WAIC. Statistics and Computing, 27(5):1413–1432. 
+%    doi:10.1007/s11222-016-9696-4. https://arxiv.org/abs/1507.04544
 %
-%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Pareto
-%    smoothed importance sampling. arXiv preprint arXiv:1507.02646v4.
+%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2017). Pareto
+%    smoothed importance sampling. https://arxiv.org/abs/1507.02646v5
 %
 %  Copyright (c) 2015 Aki Vehtari
 
