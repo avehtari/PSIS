@@ -30,7 +30,7 @@ for i1=1:size(lw,2)
     % Divide log weights into body and right tail
     n=numel(x);
     xs=sort(x);
-    xcutoff=xs(end-ceil(min(0.2*n,3*sqrt(n/Reff))));
+    xcutoff=xs(end-ceil(min(0.2*n,3*sqrt(n*Reff))));
     if xcutoff<log(realmin)
         % need to stay above realmin
         xcutoff=-700;
@@ -43,8 +43,6 @@ for i1=1:size(lw,2)
         qx=x;
         k=Inf;
     else
-        % store order of tail samples
-        [~,x2si]=sort(x2);
         % fit generalized Pareto distribution to the right tail samples
         [k,sigma]=gpdfitnew(exp(x2)-exp(xcutoff));
     end
@@ -62,8 +60,8 @@ for i1=1:size(lw,2)
         slq=zeros(n2,1);slq(x2si)=log(qq);
         % join body and GPD smoothed tail
         qx=x;qx(x<=xcutoff)=x1;qx(x>xcutoff)=slq;
-        % truncate smoothed values to the largest raw weight
-        lwtrunc=max(x);
+        % truncate smoothed values to the largest raw weight 0
+        lwtrunc=0;
         qx(qx>lwtrunc)=lwtrunc;
     end
     % renormalize weights
