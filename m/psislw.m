@@ -1,11 +1,11 @@
 function [lw,kss] = psislw(lw,Reff)
 %PSIS Pareto smoothed importance sampling
-%   
+%
 %  Description
 %    [LW,K] = PSISLW(LW,Reff) returns log weights LW
 %    and Pareto tail indeces K, given log weights and optional arguments:
 %      Reff - relative MCMC efficiency N_eff/N
-%    
+%
 %  Reference
 %    Aki Vehtari, Andrew Gelman and Jonah Gabry (2017). Pareto
 %    smoothed importance sampling. https://arxiv.org/abs/1507.02646v5
@@ -30,7 +30,7 @@ for i1=1:size(lw,2)
     % Divide log weights into body and right tail
     n=numel(x);
     xs=sort(x);
-    xcutoff=xs(end-ceil(min(0.2*n,3*sqrt(n*Reff))));
+    xcutoff=xs(end-ceil(min(0.2*n,3*sqrt(n/Reff))));
     if xcutoff<log(realmin)
         % need to stay above realmin
         xcutoff=-700;

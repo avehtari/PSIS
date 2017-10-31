@@ -154,7 +154,7 @@ def psislw(lw, Reff=1.0, overwrite_lw=False):
     kss = np.empty(m)
 
     # precalculate constants
-    cutoff_ind = - int(np.ceil(min(0.2 * n, 3 * np.sqrt(n * Reff)))) - 1
+    cutoff_ind = - int(np.ceil(min(0.2 * n, 3 * np.sqrt(n / Reff)))) - 1
     cutoffmin = np.log(np.finfo(float).tiny)
     logn = np.log(n)
     k_min = 1/3
