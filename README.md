@@ -5,9 +5,13 @@ These files implement Pareto smoothed importance sampling (PSIS) and
 PSIS leave-one-out cross-validation for Matlab/Octave and Python
 (Python port made by [Tuomas Sivula](https://github.com/tsivula)).
 
-### Corresponding R code
+### Corresponding R code in loo package
 
 The corresponding R code can be found in the [`loo` R package](https://github.com/stan-dev/loo), which is also available from [CRAN](https://cran.r-project.org/package=loo).
+
+### Python code in ArviZ
+
+[ArviZ package for exploratory analysis of Bayesian models](https://github.com/arviz-devs/arviz) available in PyPI has corresponding loo and psislw functions (see [ArviZ API reference](https://arviz-devs.github.io/arviz/api.html)).
 
 ### Contents
 
