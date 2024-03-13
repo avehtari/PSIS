@@ -7,8 +7,10 @@ function [lw,kss] = psislw(lw,Reff)
 %      Reff - relative MCMC efficiency N_eff/N
 %    
 %  Reference
-%    Aki Vehtari, Andrew Gelman and Jonah Gabry (2017). Pareto
-%    smoothed importance sampling. https://arxiv.org/abs/1507.02646v5
+%    Aki Vehtari, Daniel Simpson, Andrew Gelman, Yuling Yao, and Jonah
+%    Gabry (2024). Pareto smoothed importance sampling. Journal of Machine
+%    Learning Research, accepted for publication.
+%    https://arxiv.org/abs/arXiv:1507.02646
 %
 % Copyright (c) 2015-2017 Aki Vehtari, Tuomas Sivula
 

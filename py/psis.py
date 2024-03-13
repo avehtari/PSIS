@@ -22,12 +22,15 @@ sumlogs
 
 References
 ----------
-Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Practical
+Aki Vehtari, Andrew Gelman and Jonah Gabry (2017). Practical
 Bayesian model evaluation using leave-one-out cross-validation
-and WAIC. Statistics and Computing, doi:10.1007/s11222-016-9696-4.
+and WAIC. Statistics and Computing, 27(5):1413–1432. 
+doi:10.1007/s11222-016-9696-4. https://arxiv.org/abs/1507.04544
 
-Aki Vehtari, Andrew Gelman and Jonah Gabry (2016). Pareto
-smoothed importance sampling. arXiv preprint arXiv:1507.02646v4.
+Aki Vehtari, Daniel Simpson, Andrew Gelman, Yuling Yao, and Jonah
+Gabry (2024). Pareto smoothed importance sampling. Journal of Machine
+Learning Research, accepted for publication.
+https://arxiv.org/abs/arXiv:1507.02646
 
 """
 
@@ -71,11 +74,9 @@ def psisloo(log_lik, **kwargs):
     Computes the log predictive densities given posterior samples of the log
     likelihood terms :math:`p(y_i|\theta^s)` in input parameter `log_lik`.
     Returns a sum of the leave-one-out log predictive densities `loo`,
-    individual leave-one-out log predictive density terms `loos` and an estimate
-    of Pareto tail indeces `ks`. If tail index k > 0.5, variance of the raw
-    estimate does not exist and if tail index k > 1 the mean of the raw estimate
-    does not exist and the PSIS estimate is likely to have large variation and
-    some bias.
+    individual leave-one-out log predictive density terms `loos` and an 
+    estimate of Pareto tail indeces `ks`. The estimates are unreliable if 
+    tail index k>0.7 (see more in the references).
 
     Parameters
     ----------
@@ -111,7 +112,7 @@ def psisloo(log_lik, **kwargs):
     return loo, loos, ks
 
 
-def psislw(lw, wcpp=20, wtrunc=3/4, overwrite_lw=False):
+def psislw(lw, reff=1, overwrite_lw=False):
     """Pareto smoothed importance sampling (PSIS).
 
     Parameters
@@ -120,12 +121,9 @@ def psislw(lw, wcpp=20, wtrunc=3/4, overwrite_lw=False):
         Array of size n x m containing m sets of n log weights. It is also
         possible to provide one dimensional array of length n.
 
-    wcpp : number
-        Percentage of samples used for GPD fit estimate (default is 20).
-
-    wtrunc : float
-        Positive parameter for truncating very large weights to ``n**wtrunc``.
-        Providing False or 0 disables truncation. Default values is 3/4.
+    reff : float
+        Positive parameter for relative effective sample size due to
+        using MCMC sample. Default values is 1.
 
     overwrite_lw : bool, optional
         If True, the input array `lw` is smoothed in-place. By default, a new

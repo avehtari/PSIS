@@ -67,7 +67,7 @@ b=sum(bs.*w);
 k=mean(log1p(-b*x));
 ks=mean(log1p(-bs*x'),2);
 % estimate for sigma
-sigma=-k/b*n/(n-0);
+sigma=-k/b;
 % weakly informative prior for k
 a=10;
 k=k*n/(n+a)+a*0.5/(n+a);
