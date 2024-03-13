@@ -1,11 +1,11 @@
 function [lw,kss] = psislw(lw,Reff)
 %PSIS Pareto smoothed importance sampling
-%   
+%
 %  Description
 %    [LW,K] = PSISLW(LW,Reff) returns log weights LW
 %    and Pareto tail indeces K, given log weights and optional arguments:
 %      Reff - relative MCMC efficiency N_eff/N
-%    
+%
 %  Reference
 %    Aki Vehtari, Daniel Simpson, Andrew Gelman, Yuling Yao, and Jonah
 %    Gabry (2024). Pareto smoothed importance sampling. Journal of Machine
@@ -45,8 +45,6 @@ for i1=1:size(lw,2)
         qx=x;
         k=Inf;
     else
-        % store order of tail samples
-        [~,x2si]=sort(x2);
         % fit generalized Pareto distribution to the right tail samples
         [k,sigma]=gpdfitnew(exp(x2)-exp(xcutoff));
     end
@@ -64,8 +62,8 @@ for i1=1:size(lw,2)
         slq=zeros(n2,1);slq(x2si)=log(qq);
         % join body and GPD smoothed tail
         qx=x;qx(x<=xcutoff)=x1;qx(x>xcutoff)=slq;
-        % truncate smoothed values to the largest raw weight
-        lwtrunc=max(x);
+        % truncate smoothed values to the largest raw weight 0
+        lwtrunc=0;
         qx(qx>lwtrunc)=lwtrunc;
     end
     % renormalize weights

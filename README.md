@@ -5,8 +5,9 @@
 These files implement Pareto smoothed importance sampling (PSIS) and
 PSIS leave-one-out cross-validation for Matlab/Octave and Python
 (Python port made by [Tuomas Sivula](https://github.com/tsivula)).
-These are here for historical reference without maintenance. Instead
-of these, we recommend to use well maintained implementations
+
+These code are not maintained and are here for historical
+reference. Instead of these, use well maintained implementations
 available for R, Python, and Julia as listed below.
 
 ### R
